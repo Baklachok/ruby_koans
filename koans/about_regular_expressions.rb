@@ -7,7 +7,7 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_a_regexp_can_search_a_string_for_matching_content
-    assert_equal "match", "some matching content"[/match/]
+    assert_equal 'match', "some matching content"[/match/]
   end
 
   def test_a_failed_match_returns_nil
@@ -17,32 +17,29 @@ class AboutRegularExpressions < Neo::Koan
   # ------------------------------------------------------------------
 
   def test_question_mark_means_optional
-    assert_equal "ab", "abbcccddddeeeee"[/ab?/]
-    assert_equal "a", "abbcccddddeeeee"[/az?/]
+    assert_equal 'ab', "abbcccddddeeeee"[/ab?/]
+    assert_equal 'a', "abbcccddddeeeee"[/az?/]
   end
 
   def test_plus_means_one_or_more
-    assert_equal "bccc", "abbcccddddeeeee"[/bc+/]
+    assert_equal 'bccc', "abbcccddddeeeee"[/bc+/]
   end
 
-  def test_asterisk_means_zero_or_more
-    assert_equal "abb", "abbcccddddeeeee"[/ab*/]
-    assert_equal "a", "abbcccddddeeeee"[/az*/]
-    assert_equal "", "abbcccddddeeeee"[/z*/]
+   def test_asterisk_means_zero_or_more
+      assert_equal "abb", "abbcccddddeeeee"[/ab*/]
+      assert_equal "a", "abbcccddddeeeee"[/az*/]
+      assert_equal "", "abbcccddddeeeee"[/z*/]
 
-    # THINK ABOUT IT:
-    #
-    # When would * fail to match?
-    # ANSWER: maybe never, or for an empty string
-    # yeah it is never -> ""[/a*/] == ""
-  end
+     # THINK ABOUT IT:
+     #
+     # When would * fail to match?
+   end
 
   # THINK ABOUT IT:
   #
   # We say that the repetition operators above are "greedy."
   #
   # Why?
-  # ANSWER: It exists early.
 
   # ------------------------------------------------------------------
 
@@ -148,9 +145,7 @@ class AboutRegularExpressions < Neo::Koan
   #
   # Explain the difference between a character class ([...]) and alternation (|).
 
-  # Answer:
-  #  ([...]) Is charaacter base
-  #  (|) Is for words
+  # ------------------------------------------------------------------
 
   def test_scan_is_like_find_all
     assert_equal ["one", "two", "three"], "one two-three".scan(/\w+/)
@@ -161,6 +156,6 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_gsub_is_like_find_and_replace_all
-    assert_equal 'one t-t', "one two-three".gsub(/(t\w*)/) { $1[0, 1] }
+    assert_equal "one t-t", "one two-three".gsub(/(t\w*)/) { $1[0, 1] }
   end
 end

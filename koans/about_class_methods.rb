@@ -19,11 +19,11 @@ class AboutClassMethods < Neo::Koan
 
   def test_objects_have_methods
     fido = Dog.new
-    assert fido.methods.size == 62
+    assert fido.methods.size < _n_
   end
 
   def test_classes_have_methods
-    assert Dog.methods.size > 10
+    assert Dog.methods.size < _n_
   end
 
   def test_you_can_define_methods_on_individual_objects
@@ -94,7 +94,7 @@ class AboutClassMethods < Neo::Koan
   end
 
   def test_you_can_define_class_methods_inside_the_class
-    assert_equal :dogs_class_method, Dog.a_class_method
+    assert_equal :dogs_class_method , Dog.a_class_method
   end
 
   # ------------------------------------------------------------------
@@ -158,7 +158,6 @@ class AboutClassMethods < Neo::Koan
   #
   # Which do you prefer and why?
   # Are there times you might prefer one over the other?
-  # ANSWER: idk but the first version seems more reasonable. (doing `self.method`)
 
   # ------------------------------------------------------------------
 

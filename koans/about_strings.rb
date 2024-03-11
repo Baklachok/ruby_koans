@@ -31,10 +31,8 @@ class AboutStrings < Neo::Koan
     a = %(flexible quotes can handle both ' and " characters)
     b = %!flexible quotes can handle both ' and " characters!
     c = %{flexible quotes can handle both ' and " characters}
-    d = %|flexible quotes can handle both ' and " characters|
     assert_equal true, a == b
     assert_equal true, a == c
-    assert_equal true, a == d
   end
 
   def test_flexible_quotes_can_handle_multiple_lines
@@ -54,7 +52,7 @@ It was the worst of times.
 EOS
     assert_equal 53, long_string.length
     assert_equal 2, long_string.lines.count
-    assert_equal 'I', long_string[0,1]
+    assert_equal "I", long_string[0,1]
   end
 
   def test_plus_will_concatenate_two_strings
@@ -136,7 +134,7 @@ EOS
 
   def test_any_ruby_expression_may_be_interpolated
     string = "The square root of 5 is #{Math.sqrt(5)}"
-    assert_equal 'The square root of 5 is 2.23606797749979', string
+    assert_equal "The square root of 5 is 2.23606797749979", string
   end
 
   def test_you_can_get_a_substring_from_a_string

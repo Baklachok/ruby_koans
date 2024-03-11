@@ -11,12 +11,12 @@ class AboutConstants < Neo::Koan
   end
 
   def test_top_level_constants_are_referenced_by_double_colons
-    assert_equal "top level", ::C
+    assert_equal 'top level', ::C
   end
 
   def test_nested_constants_are_referenced_by_their_complete_path
-    assert_equal "nested", AboutConstants::C
-    assert_equal "nested", ::AboutConstants::C
+    assert_equal 'nested', AboutConstants::C
+    assert_equal 'nested', ::AboutConstants::C
   end
 
   # ------------------------------------------------------------------
@@ -69,7 +69,7 @@ class AboutConstants < Neo::Koan
   # QUESTION: Which has precedence: The constant in the lexical scope,
   # or the constant from the inheritance hierarchy?
 
-  # ANSWER: The constant from the lexical scope
+  # ------------------------------------------------------------------
 
   class MyAnimals::Oyster < Animal
     def legs_in_oyster

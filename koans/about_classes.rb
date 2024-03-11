@@ -6,7 +6,7 @@ class AboutClasses < Neo::Koan
 
   def test_instances_of_classes_can_be_created_with_new
     fido = Dog.new
-    assert_equal Dog, fido.class
+    assert_equal AboutClasses::Dog, fido.class
   end
 
   # ------------------------------------------------------------------
@@ -124,7 +124,6 @@ class AboutClasses < Neo::Koan
     end
     # THINK ABOUT IT:
     # Why is this so?
-    # ANSWER: It calls the initialize function with 0 arguments
   end
 
   def test_different_objects_have_different_instance_variables
@@ -175,7 +174,7 @@ class AboutClasses < Neo::Koan
 
   def test_inspect_provides_a_more_complete_string_version
     fido = Dog7.new("Fido")
-    assert_equal fido.inspect, fido.inspect
+    assert_equal "<Dog named 'Fido'>", fido.inspect
   end
 
   def test_all_objects_support_to_s_and_inspect

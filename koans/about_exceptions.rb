@@ -17,10 +17,10 @@ class AboutExceptions < Neo::Koan
     begin
       fail "Oops"
     rescue StandardError => ex
-      result = :exception_handled
+      result = :eception_handled
     end
 
-    assert_equal :exception_handled, result
+    assert_equal :eception_handled, result
 
     assert_equal true, ex.is_a?(StandardError), "Should be a Standard Error"
     assert_equal true, ex.is_a?(RuntimeError),  "Should be a Runtime Error"

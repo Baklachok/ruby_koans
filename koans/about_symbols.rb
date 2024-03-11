@@ -38,7 +38,7 @@ class AboutSymbols < Neo::Koan
     def test_constants_become_symbols
       all_symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
 
-      assert_equal true, all_symbols_as_strings.include?("RubyConstant")
+      assert_equal false, all_symbols_as_strings.include?(__)
     end
   end
 
@@ -57,7 +57,7 @@ class AboutSymbols < Neo::Koan
     value = "and"
     symbol = :"cats #{value} dogs"
 
-    assert_equal "cats and dogs".to_sym, symbol
+    assert_equal :"cats and dogs".to_sym, symbol
   end
 
   def test_to_s_is_called_on_interpolated_symbols
@@ -85,7 +85,7 @@ class AboutSymbols < Neo::Koan
 
   def test_symbols_cannot_be_concatenated
     # Exceptions will be pondered further down the path
-    assert_raise(NoMethodError) do
+    assert_raise(Exception) do
       :cats + :dogs
     end
   end

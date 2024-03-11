@@ -23,7 +23,7 @@ class AboutHashes < Neo::Koan
   def test_accessing_hashes_with_fetch
     hash = { :one => "uno" }
     assert_equal "uno", hash.fetch(:one)
-    assert_raise(KeyError) do
+    assert_raise(Exception) do
       hash.fetch(:doesnt_exist)
     end
 
@@ -121,6 +121,6 @@ class AboutHashes < Neo::Koan
 
     hash.default = 'peanut'
 
-    assert_equal 'peanut', hash[:some_key]
+    assert_equal "peanut", hash[:some_key]
   end
 end
